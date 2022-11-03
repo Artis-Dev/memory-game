@@ -5,10 +5,10 @@
   "homepage": "https://artis-dev.github.io/memory-game/",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "react-scripts": "5.0.1",
     "eslint": "^8.24.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
