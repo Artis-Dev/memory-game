@@ -1,0 +1,7 @@
+.Stats {
+  font-size: 18px;
+}
+
+.Stats > span:not(:last-child) {
+  margin-right: 16px;
+}

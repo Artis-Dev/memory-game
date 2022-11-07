@@ -1,2 +1,17 @@
 .Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0 40px;
+}
+
+.stats {
+  font-size: 18px;
+}
+
+.stats > span:not(:last-child) {
+  margin-right: 10px;
 }
