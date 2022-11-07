@@ -2,6 +2,12 @@
   font-size: 18px;
 }
 
+.Stats > span {
+  padding: 8px 12px;
+  border: 2px solid;
+  border-radius: 23px;
+}
+
 .Stats > span:not(:last-child) {
   margin-right: 16px;
 }
