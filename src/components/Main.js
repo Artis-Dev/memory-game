@@ -1,27 +1,31 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import '../styles/Main.css';
 
 import Description from './Description';
 import Button from './Button';
+import CardList from './CardList';
 
-function Main() {
-  const [newGame, setNewGame] = useState(true);
-
-  const handleNewGame = () => {
-    setNewGame(false);
-  };
+function Main(props) {
+  const { newGame, handleNewGame } = props;
 
   return (
     <main className="Main">
-      {newGame === true ? (
+      {newGame ? (
         <>
           <Description />
           <Button handleClick={handleNewGame} />
         </>
-      ) : null}
+      ) : (
+        <CardList />
+      )}
     </main>
   );
 }
+
+Main.propTypes = {
+  newGame: PropTypes.bool.isRequired,
+  handleNewGame: PropTypes.func.isRequired,
+};
 
 export default Main;
