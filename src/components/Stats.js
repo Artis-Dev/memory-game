@@ -9,7 +9,6 @@ function Stats(props) {
     <div className="Stats">
       {!newGame ? (
         <>
-          <span>Difficulty: {stats.mode}</span>
           <span>Level: {stats.level}</span>
           <span>Score: {stats.score}</span>
         </>

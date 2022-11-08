@@ -9,15 +9,19 @@ import Footer from './Footer';
 function App() {
   const [newGame, setNewGame] = useState(true);
 
-  const [stats] = useState({
+  const [stats, setStats] = useState({
     mode: '',
     level: 1,
     score: 0,
     highscore: 0,
   });
 
-  const handleNewGame = () => {
+  const handleNewGame = (mode) => {
     setNewGame(false);
+    setStats((prevState) => ({
+      ...prevState,
+      mode,
+    }));
   };
 
   return (
