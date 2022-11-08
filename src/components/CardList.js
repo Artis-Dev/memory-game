@@ -3,7 +3,14 @@ import '../styles/CardList.css';
 import Card from './Card';
 
 function CardList() {
-  return <Card />;
+  return (
+    <div className="CardList">
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </div>
+  );
 }
 
 export default CardList;
