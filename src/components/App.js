@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Header newGame={newGame} stats={stats} />
-      <Main newGame={newGame} handleNewGame={handleNewGame} />
+      <Main newGame={newGame} handleNewGame={handleNewGame} stats={stats} />
       <Footer />
     </div>
   );
