@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import '../styles/Stats.css';
 
 function Stats(props) {
-  const { newGame, stats } = props;
+  const { stats } = props;
 
   return (
     <div className="Stats">
-      {!newGame ? (
+      {stats.state !== 'newgame' ? (
         <>
           <span>Level: {stats.level}</span>
           <span>Score: {stats.score}</span>
@@ -19,8 +19,8 @@ function Stats(props) {
 }
 
 Stats.propTypes = {
-  newGame: PropTypes.bool.isRequired,
   stats: PropTypes.shape({
+    state: PropTypes.string.isRequired,
     mode: PropTypes.string.isRequired,
     level: PropTypes.number.isRequired,
     score: PropTypes.number.isRequired,

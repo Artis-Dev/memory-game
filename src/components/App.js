@@ -7,9 +7,8 @@ import Main from './Main';
 import Footer from './Footer';
 
 function App() {
-  const [newGame, setNewGame] = useState(true);
-
   const [stats, setStats] = useState({
+    state: 'newgame', // newgame, playing, lose, win
     mode: '',
     level: 1,
     score: 0,
@@ -17,9 +16,9 @@ function App() {
   });
 
   const handleNewGame = (mode) => {
-    setNewGame(false);
     setStats((prevState) => ({
       ...prevState,
+      state: 'playing',
       mode,
     }));
   };
@@ -40,9 +39,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header newGame={newGame} stats={stats} />
+      <Header stats={stats} />
       <Main
-        newGame={newGame}
         handleNewGame={handleNewGame}
         stats={stats}
         handleScore={handleScore}
