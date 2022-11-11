@@ -9,7 +9,7 @@ import { createDeck, shuffleDeck } from '../utils/deckUtils';
 import Card from './Card';
 
 function CardList(props) {
-  const { stats } = props;
+  const { stats, handleScore } = props;
 
   const [deck, setDeck] = useState([]);
 
@@ -50,7 +50,7 @@ function CardList(props) {
       deck.map((card) => {
         if (e.target.parentElement.getAttribute('data-key') === card.id) {
           if (!card.isClicked) {
-            // handleScore();
+            handleScore();
             return {
               ...card,
               isClicked: true,
@@ -78,6 +78,7 @@ CardList.propTypes = {
     level: PropTypes.number.isRequired,
     score: PropTypes.number.isRequired,
   }).isRequired,
+  handleScore: PropTypes.func.isRequired,
 };
 
 export default CardList;

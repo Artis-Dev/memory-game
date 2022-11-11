@@ -6,14 +6,14 @@ import CardList from './CardList';
 import NewGame from './NewGame';
 
 function Main(props) {
-  const { newGame, handleNewGame, stats } = props;
+  const { newGame, handleNewGame, stats, handleScore } = props;
 
   return (
     <main className="Main">
       {newGame ? (
         <NewGame handleNewGame={handleNewGame} />
       ) : (
-        <CardList stats={stats} />
+        <CardList stats={stats} handleScore={handleScore} />
       )}
     </main>
   );
@@ -22,6 +22,7 @@ function Main(props) {
 Main.propTypes = {
   newGame: PropTypes.bool.isRequired,
   handleNewGame: PropTypes.func.isRequired,
+  handleScore: PropTypes.func.isRequired,
   stats: PropTypes.shape({}).isRequired,
 };
 

@@ -24,10 +24,29 @@ function App() {
     }));
   };
 
+  const handleScore = () => {
+    setStats((prevState) => ({
+      ...prevState,
+      score: prevState.score + 1,
+    }));
+    setStats((prevState) => ({
+      ...prevState,
+      highscore:
+        prevState.highscore < prevState.score
+          ? prevState.score
+          : prevState.highscore,
+    }));
+  };
+
   return (
     <div className="App">
       <Header newGame={newGame} stats={stats} />
-      <Main newGame={newGame} handleNewGame={handleNewGame} stats={stats} />
+      <Main
+        newGame={newGame}
+        handleNewGame={handleNewGame}
+        stats={stats}
+        handleScore={handleScore}
+      />
       <Footer />
     </div>
   );
