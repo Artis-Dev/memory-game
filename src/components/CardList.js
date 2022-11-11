@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import '../styles/CardList.css';
 
+import levels from '../utils/levels';
 import cards from '../utils/cards';
 import { createDeck, shuffleDeck } from '../utils/deckUtils';
 
@@ -14,31 +15,7 @@ function CardList(props) {
   const [deck, setDeck] = useState([]);
 
   useEffect(() => {
-    if (stats.mode === 'easy') {
-      if (stats.level === 1) {
-        setDeck(createDeck(cards, 4));
-      } else if (stats.level === 2) {
-        setDeck(createDeck(cards, 8));
-      } else if (stats.level === 3) {
-        setDeck(createDeck(cards, 12));
-      }
-    } else if (stats.mode === 'normal') {
-      if (stats.level === 1) {
-        setDeck(createDeck(cards, 6));
-      } else if (stats.level === 2) {
-        setDeck(createDeck(cards, 12));
-      } else if (stats.level === 3) {
-        setDeck(createDeck(cards, 18));
-      }
-    } else if (stats.mode === 'hard') {
-      if (stats.level === 1) {
-        setDeck(createDeck(cards, 8));
-      } else if (stats.level === 2) {
-        setDeck(createDeck(cards, 16));
-      } else if (stats.level === 3) {
-        setDeck(createDeck(cards, 24));
-      }
-    }
+    setDeck(createDeck(cards, levels[stats.mode][stats.level]));
   }, [stats.mode, stats.level]);
 
   useEffect(() => {
