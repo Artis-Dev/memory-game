@@ -37,6 +37,16 @@ function App() {
     }));
   };
 
+  const handleLose = () => {
+    setStats((prevState) => ({
+      ...prevState,
+      state: 'lose',
+      mode: '',
+      level: 1,
+      score: 0,
+    }));
+  };
+
   return (
     <div className="App">
       <Header stats={stats} />
@@ -44,6 +54,7 @@ function App() {
         handleNewGame={handleNewGame}
         stats={stats}
         handleScore={handleScore}
+        handleLose={handleLose}
       />
       <Footer />
     </div>

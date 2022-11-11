@@ -4,24 +4,33 @@ import '../styles/Main.css';
 
 import CardList from './CardList';
 import NewGame from './NewGame';
+import Lose from './Lose';
 
 function Main(props) {
-  const { handleNewGame, stats, handleScore } = props;
+  const { handleNewGame, stats, handleScore, handleLose } = props;
 
-  return (
-    <main className="Main">
-      {stats.state === 'newgame' ? (
-        <NewGame handleNewGame={handleNewGame} />
-      ) : (
-        <CardList stats={stats} handleScore={handleScore} />
-      )}
-    </main>
-  );
+  let gameView = '';
+  if (stats.state === 'newgame') {
+    gameView = <NewGame handleNewGame={handleNewGame} />;
+  } else if (stats.state === 'playing') {
+    gameView = (
+      <CardList
+        stats={stats}
+        handleScore={handleScore}
+        handleLose={handleLose}
+      />
+    );
+  } else if (stats.state === 'lose') {
+    gameView = <Lose handleNewGame={handleNewGame} />;
+  }
+
+  return <main className="Main">{gameView}</main>;
 }
 
 Main.propTypes = {
   handleNewGame: PropTypes.func.isRequired,
   handleScore: PropTypes.func.isRequired,
+  handleLose: PropTypes.func.isRequired,
   stats: PropTypes.shape({
     state: PropTypes.string.isRequired,
   }).isRequired,

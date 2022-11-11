@@ -9,7 +9,7 @@ import { createDeck, shuffleDeck } from '../utils/deckUtils';
 import Card from './Card';
 
 function CardList(props) {
-  const { stats, handleScore } = props;
+  const { stats, handleScore, handleLose } = props;
 
   const [deck, setDeck] = useState([]);
 
@@ -56,7 +56,7 @@ function CardList(props) {
               isClicked: true,
             };
           }
-          // handleLose();
+          handleLose();
         }
         return card;
       })
@@ -79,6 +79,7 @@ CardList.propTypes = {
     score: PropTypes.number.isRequired,
   }).isRequired,
   handleScore: PropTypes.func.isRequired,
+  handleLose: PropTypes.func.isRequired,
 };
 
 export default CardList;
