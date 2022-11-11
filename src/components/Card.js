@@ -4,17 +4,26 @@ import '../styles/Card.css';
 import frame from '../assets/frame.png';
 
 function Card(props) {
-  const { image } = props;
+  const { card, handleClick } = props;
   return (
-    <div className="Card">
-      <img src={image} alt="Card" />
+    <button
+      type="button"
+      className="Card"
+      onClick={handleClick}
+      data-key={card.id}
+    >
+      <img src={card.image} alt="Card" />
       <img src={frame} alt="" />
-    </div>
+    </button>
   );
 }
 
 Card.propTypes = {
-  image: PropTypes.string.isRequired,
+  card: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Card;

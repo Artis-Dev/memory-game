@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import '../styles/CardList.css';
 
 import cards from '../utils/cards';
-import createDeck from '../utils/createDeck';
+import { createDeck, shuffleDeck } from '../utils/deckUtils';
 
 import Card from './Card';
 
@@ -41,10 +41,32 @@ function CardList(props) {
     }
   }, [stats.mode, stats.level]);
 
+  useEffect(() => {
+    shuffleDeck(deck);
+  }, [deck, stats.score]);
+
+  const handleCardClick = (e) => {
+    setDeck(
+      deck.map((card) => {
+        if (e.target.parentElement.getAttribute('data-key') === card.id) {
+          if (!card.isClicked) {
+            // handleScore();
+            return {
+              ...card,
+              isClicked: true,
+            };
+          }
+          // handleLose();
+        }
+        return card;
+      })
+    );
+  };
+
   return (
     <div className="CardList">
       {deck.map((card) => {
-        return <Card image={card} />;
+        return <Card key={card.id} card={card} handleClick={handleCardClick} />;
       })}
     </div>
   );
@@ -54,6 +76,7 @@ CardList.propTypes = {
   stats: PropTypes.shape({
     mode: PropTypes.string.isRequired,
     level: PropTypes.number.isRequired,
+    score: PropTypes.number.isRequired,
   }).isRequired,
 };
 
