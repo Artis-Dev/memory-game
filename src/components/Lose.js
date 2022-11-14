@@ -4,7 +4,7 @@ import '../styles/Lose.css';
 
 import Difficulty from './Difficulty';
 
-function NewGame(props) {
+function Lose(props) {
   const { handleNewGame } = props;
 
   return (
@@ -15,8 +15,8 @@ function NewGame(props) {
   );
 }
 
-NewGame.propTypes = {
+Lose.propTypes = {
   handleNewGame: PropTypes.func.isRequired,
 };
 
-export default NewGame;
+export default Lose;
