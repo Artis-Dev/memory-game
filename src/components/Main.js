@@ -7,7 +7,7 @@ import NewGame from './NewGame';
 import Lose from './Lose';
 
 function Main(props) {
-  const { handleNewGame, stats, handleScore, handleLose } = props;
+  const { handleNewGame, stats, handleScore, handleEndGame } = props;
 
   let gameView = '';
   if (stats.state === 'newgame') {
@@ -17,7 +17,7 @@ function Main(props) {
       <CardList
         stats={stats}
         handleScore={handleScore}
-        handleLose={handleLose}
+        handleLose={handleEndGame}
       />
     );
   } else if (stats.state === 'lose') {
@@ -30,7 +30,7 @@ function Main(props) {
 Main.propTypes = {
   handleNewGame: PropTypes.func.isRequired,
   handleScore: PropTypes.func.isRequired,
-  handleLose: PropTypes.func.isRequired,
+  handleEndGame: PropTypes.func.isRequired,
   stats: PropTypes.shape({
     state: PropTypes.string.isRequired,
   }).isRequired,

@@ -16,24 +16,6 @@ function App() {
     highscore: 0,
   });
 
-  useEffect(() => {
-    console.log(levels[stats.mode][stats.level]);
-    if (
-      stats.score === levels[stats.mode][stats.level].required &&
-      stats.level < 3
-    ) {
-      setStats((prevState) => ({
-        ...prevState,
-        level: prevState.level + 1,
-      }));
-    } else if (
-      stats.score === levels[stats.mode][stats.level].required &&
-      stats.level === 3
-    ) {
-      // handleWin();
-    }
-  }, [stats.score, stats.mode, stats.level]);
-
   const handleNewGame = (mode) => {
     setStats((prevState) => ({
       ...prevState,
@@ -58,12 +40,29 @@ function App() {
     }));
   };
 
-  const handleLose = () => {
+  const handleEndGame = (state) => {
     setStats((prevState) => ({
       ...prevState,
-      state: 'lose',
+      state,
     }));
   };
+
+  useEffect(() => {
+    if (
+      stats.score === levels[stats.mode][stats.level].required &&
+      stats.level < 3
+    ) {
+      setStats((prevState) => ({
+        ...prevState,
+        level: prevState.level + 1,
+      }));
+    } else if (
+      stats.score === levels[stats.mode][stats.level].required &&
+      stats.level === 3
+    ) {
+      handleEndGame('win');
+    }
+  }, [stats.score, stats.mode, stats.level]);
 
   return (
     <div className="App">
@@ -72,7 +71,7 @@ function App() {
         handleNewGame={handleNewGame}
         stats={stats}
         handleScore={handleScore}
-        handleLose={handleLose}
+        handleEndGame={handleEndGame}
       />
       <Footer />
     </div>
