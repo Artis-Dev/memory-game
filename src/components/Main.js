@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import '../styles/Main.css';
 
-import CardList from './CardList';
+import Game from './Game';
 import NewGame from './NewGame';
 import Lose from './Lose';
 
@@ -14,10 +14,10 @@ function Main(props) {
     gameView = <NewGame handleNewGame={handleNewGame} />;
   } else if (stats.state === 'playing') {
     gameView = (
-      <CardList
+      <Game
         stats={stats}
         handleScore={handleScore}
-        handleLose={handleEndGame}
+        handleEndGame={handleEndGame}
       />
     );
   } else if (stats.state === 'lose') {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import '../styles/NewGame.css';
+import '../styles/Lose.css';
 
 import Difficulty from './Difficulty';
 
@@ -8,7 +8,7 @@ function NewGame(props) {
   const { handleNewGame } = props;
 
   return (
-    <div className="NewGame">
+    <div className="Lose">
       <p>You lost</p>
       <Difficulty handleNewGame={handleNewGame} />
     </div>
