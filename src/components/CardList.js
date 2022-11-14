@@ -15,7 +15,7 @@ function CardList(props) {
   const [deck, setDeck] = useState([]);
 
   useEffect(() => {
-    setDeck(createDeck(cards, levels[stats.mode][stats.level]));
+    setDeck(createDeck(cards, levels[stats.mode][stats.level].cards));
   }, [stats.mode, stats.level]);
 
   useEffect(() => {

@@ -1,25 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import '../styles/App.css';
 
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import levels from '../utils/levels';
 
 function App() {
   const [stats, setStats] = useState({
     state: 'newgame', // newgame, playing, lose, win
-    mode: '',
+    mode: 'easy', // easy, normal, hard
     level: 1,
     score: 0,
     highscore: 0,
   });
+
+  useEffect(() => {
+    console.log(levels[stats.mode][stats.level]);
+    if (
+      stats.score === levels[stats.mode][stats.level].required &&
+      stats.level < 3
+    ) {
+      setStats((prevState) => ({
+        ...prevState,
+        level: prevState.level + 1,
+      }));
+    } else if (
+      stats.score === levels[stats.mode][stats.level].required &&
+      stats.level === 3
+    ) {
+      // handleWin();
+    }
+  }, [stats.score, stats.mode, stats.level]);
 
   const handleNewGame = (mode) => {
     setStats((prevState) => ({
       ...prevState,
       state: 'playing',
       mode,
+      level: 1,
+      score: 0,
     }));
   };
 
@@ -41,9 +62,6 @@ function App() {
     setStats((prevState) => ({
       ...prevState,
       state: 'lose',
-      mode: '',
-      level: 1,
-      score: 0,
     }));
   };
 
