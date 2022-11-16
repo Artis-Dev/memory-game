@@ -102,7 +102,6 @@ const cards = [
   { image: card42, isClicked: false, id: uniqid() },
   { image: card43, isClicked: false, id: uniqid() },
   { image: card44, isClicked: false, id: uniqid() },
-  { image: card44, isClicked: false, id: uniqid() },
   { image: card45, isClicked: false, id: uniqid() },
   { image: card46, isClicked: false, id: uniqid() },
   { image: card47, isClicked: false, id: uniqid() },
