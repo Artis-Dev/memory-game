@@ -5,6 +5,7 @@ import frame from '../assets/frame.png';
 
 function Card(props) {
   const { card, handleClick } = props;
+
   return (
     <button
       type="button"
@@ -12,8 +13,8 @@ function Card(props) {
       onClick={handleClick}
       data-key={card.id}
     >
-      <img src={card.image} alt="Card" />
-      <img src={frame} alt="" />
+      <img alt="" src={card.image} />
+      <img alt="" src={frame} />
     </button>
   );
 }

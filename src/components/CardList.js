@@ -18,11 +18,8 @@ function CardList(props) {
     setDeck(createDeck(cards, levels[stats.mode][stats.level].cards));
   }, [stats.mode, stats.level]);
 
-  useEffect(() => {
-    shuffleDeck(deck);
-  }, [deck, stats.score]);
-
   const handleCardClick = (e) => {
+    shuffleDeck(deck);
     setDeck(
       deck.map((card) => {
         if (e.target.parentElement.getAttribute('data-key') === card.id) {
