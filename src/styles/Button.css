@@ -1,12 +1,17 @@
 .Button {
-  background-color: #f3f3f4;
+  background-color: transparent;
+  font-family: 'Cinzel', serif;
+  color: #fff;
   padding: 8px 22px;
   border-radius: 22px;
-  border: none;
-  font-size: 22px;
+  border: 2px solid #8b949e;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .Button:hover {
+  border-color: #fff;
+  transition: all 0.2s;
 }
