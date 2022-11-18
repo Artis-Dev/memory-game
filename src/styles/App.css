@@ -1,4 +1,6 @@
 .App {
+  background: center url('../assets/background.jpg');
+  color: #9ca6b1;
   display: flex;
   flex-direction: column;
   align-items: center;
