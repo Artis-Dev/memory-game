@@ -1,3 +1,4 @@
+import Tilt from 'react-parallax-tilt';
 import PropTypes from 'prop-types';
 
 import '../styles/Card.css';
@@ -7,15 +8,23 @@ function Card(props) {
   const { card, handleClick } = props;
 
   return (
-    <button
-      type="button"
-      className="Card"
-      onClick={handleClick}
-      data-key={card.id}
+    <Tilt
+      glareEnable
+      glareMaxOpacity={0.8}
+      glareColor="#ffffff"
+      glarePosition="bottom"
+      glareBorderRadius="20px"
     >
-      <img alt="" src={card.image} />
-      <img alt="" src={frame} />
-    </button>
+      <button
+        type="button"
+        className="Card"
+        onClick={handleClick}
+        data-key={card.id}
+      >
+        <img alt="" src={card.image} />
+        <img alt="" src={frame} />
+      </button>
+    </Tilt>
   );
 }
 
