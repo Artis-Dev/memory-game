@@ -4,8 +4,7 @@ import '../styles/Main.css';
 
 import Game from './Game';
 import NewGame from './NewGame';
-import Lose from './Lose';
-import Win from './Win';
+import EndGame from './EndGame';
 
 function Main(props) {
   const { handleNewGame, stats, handleScore, handleEndGame } = props;
@@ -21,10 +20,8 @@ function Main(props) {
         handleEndGame={handleEndGame}
       />
     );
-  } else if (stats.state === 'lose') {
-    gameView = <Lose handleNewGame={handleNewGame} />;
-  } else if (stats.state === 'win') {
-    gameView = <Win handleNewGame={handleNewGame} />;
+  } else {
+    gameView = <EndGame state={stats.state} handleNewGame={handleNewGame} />;
   }
   return <main className="Main">{gameView}</main>;
 }
