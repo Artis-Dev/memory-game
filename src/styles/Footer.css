@@ -1,6 +1,13 @@
 .Footer {
   font-size: 1.2rem;
 }
+
 .Footer a {
   color: #fff;
+}
+
+@media screen and (max-width: 764px) {
+  .Footer {
+    font-size: 1rem;
+  }
 }

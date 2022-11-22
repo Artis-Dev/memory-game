@@ -1,6 +1,6 @@
 .Stats {
   display: flex;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 .Stats > span {
@@ -11,4 +11,10 @@
 
 .Stats > span:not(:last-child) {
   margin-right: 16px;
+}
+
+@media screen and (max-width: 764px) {
+  .Stats {
+    font-size: 0.8rem;
+  }
 }
