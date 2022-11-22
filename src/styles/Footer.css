@@ -1,3 +1,6 @@
 .Footer {
-  /* display: flex; */
+  font-size: 1.2rem;
+}
+.Footer a {
+  color: #fff;
 }
