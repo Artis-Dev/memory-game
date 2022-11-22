@@ -9,7 +9,10 @@ function Game(props) {
 
   return (
     <div>
-      <p>Lorem ipsum</p>
+      <p>
+        Get points for choosing a card, but don&apos;t choose the same one
+        twice.
+      </p>
       <CardList
         stats={stats}
         handleScore={handleScore}
