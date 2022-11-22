@@ -1,0 +1,17 @@
+.animation-appear {
+  opacity: 0;
+}
+
+.animation-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.animation-enter {
+  opacity: 0;
+}
+
+.animation-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
