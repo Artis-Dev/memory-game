@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="Footer">
       <p>
-        Built by <a href="/">ArtisDev</a> | <a href="/">Source code</a>
+        Built by <a href="/">ArtisDev</a> | <a href="/">Source Code</a>
       </p>
     </footer>
   );
