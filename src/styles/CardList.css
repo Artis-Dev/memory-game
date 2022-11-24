@@ -4,3 +4,14 @@
   justify-content: center;
   gap: 24px;
 }
+
+.loading {
+  clip-path: inset(0 21px 0 0);
+  animation: l 1s steps(4) infinite;
+}
+
+@keyframes l {
+  to {
+    clip-path: inset(0 -7px 0 0);
+  }
+}

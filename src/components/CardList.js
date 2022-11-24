@@ -13,6 +13,27 @@ function CardList(props) {
   const { stats, handleScore, handleEndGame } = props;
 
   const [deck, setDeck] = useState([]);
+  const [imgsLoaded, setImgsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadImage = (image) => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image();
+
+        loadImg.src = image.image;
+        loadImg.onload = () =>
+          setTimeout(() => {
+            resolve(image.url);
+          }, 2000);
+
+        loadImg.onerror = (err) => reject(err);
+      });
+    };
+
+    Promise.all(cards.map((image) => loadImage(image)))
+      .then(() => setImgsLoaded(true))
+      .catch((err) => console.error('Failed to load images', err));
+  }, []);
 
   useEffect(() => {
     setDeck(createDeck(cards, levels[stats.mode][stats.level].cards));
@@ -39,9 +60,15 @@ function CardList(props) {
 
   return (
     <div className="CardList">
-      {deck.map((card) => {
-        return <Card key={card.id} card={card} handleClick={handleCardClick} />;
-      })}
+      {imgsLoaded ? (
+        deck.map((card) => {
+          return (
+            <Card key={card.id} card={card} handleClick={handleCardClick} />
+          );
+        })
+      ) : (
+        <h1 className="loading">loading...</h1>
+      )}
     </div>
   );
 }
