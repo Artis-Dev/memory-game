@@ -1,24 +1,16 @@
 import PropTypes from 'prop-types';
-import { CSSTransition } from 'react-transition-group';
 
 import '../styles/Main.css';
-import '../styles/transition.css';
 
 import Game from './Game';
 import NewGame from './NewGame';
-import EndGame from './EndGame';
 
 function Main(props) {
   const { handleNewGame, stats, handleScore, handleEndGame } = props;
 
-  let gameView = '';
-  if (stats.state === 'newgame') {
-    gameView = (
-      <CSSTransition in appear timeout={500} classNames="animation">
-        <NewGame handleNewGame={handleNewGame} />
-      </CSSTransition>
-    );
-  } else if (stats.state === 'playing') {
+  let gameView = null;
+
+  if (stats.state === 'playing') {
     gameView = (
       <Game
         stats={stats}
@@ -27,12 +19,9 @@ function Main(props) {
       />
     );
   } else {
-    gameView = (
-      <CSSTransition in appear timeout={500} classNames="animation">
-        <EndGame state={stats.state} handleNewGame={handleNewGame} />
-      </CSSTransition>
-    );
+    gameView = <NewGame state={stats.state} handleNewGame={handleNewGame} />;
   }
+
   return <main className="Main">{gameView}</main>;
 }
 
