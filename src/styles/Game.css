@@ -1,0 +1,14 @@
+.Game > p {
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  animation: fadeIn 500ms ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

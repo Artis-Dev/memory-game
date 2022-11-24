@@ -32,7 +32,7 @@ function CardList(props) {
 
     Promise.all(cards.map((image) => loadImage(image)))
       .then(() => setImgsLoaded(true))
-      .catch((err) => console.error('Failed to load images', err));
+      .catch((err) => console.log('Failed to load images', err));
   }, []);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ function CardList(props) {
           );
         })
       ) : (
-        <h1 className="loading">loading...</h1>
+        <h1 className="loading">Loading...</h1>
       )}
     </div>
   );

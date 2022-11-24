@@ -8,7 +8,7 @@ function Game(props) {
   const { stats, handleScore, handleEndGame } = props;
 
   return (
-    <div>
+    <div className="Game">
       <p>
         Get points for choosing a card, but don&apos;t choose the same one
         twice.
