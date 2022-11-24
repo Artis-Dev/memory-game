@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import Tilt from 'react-parallax-tilt';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
@@ -8,9 +9,16 @@ import frame from '../assets/frame.png';
 
 function Card(props) {
   const { card, handleClick } = props;
+  const nodeRef = useRef(null);
 
   return (
-    <CSSTransition in appear timeout={500} classNames="animation">
+    <CSSTransition
+      nodeRef={nodeRef}
+      in
+      appear
+      timeout={500}
+      classNames="animation"
+    >
       <Tilt
         glareEnable
         glareMaxOpacity={0.8}
@@ -19,6 +27,7 @@ function Card(props) {
         glareBorderRadius="20px"
       >
         <button
+          ref={nodeRef}
           type="button"
           className="Card"
           onClick={handleClick}
