@@ -10,7 +10,7 @@ function Footer() {
         </a>{' '}
         |{' '}
         <a
-          href="https://artis-dev.github.io/memory-game/"
+          href="https://github.com/Artis-Dev/memory-game"
           target="_blank"
           rel="noreferrer"
         >

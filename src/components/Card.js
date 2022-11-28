@@ -24,7 +24,7 @@ function Card(props) {
         glareMaxOpacity={0.8}
         glareColor="#ffffff"
         glarePosition="bottom"
-        glareBorderRadius="20px"
+        glareBorderRadius="3px"
       >
         <button
           ref={nodeRef}
