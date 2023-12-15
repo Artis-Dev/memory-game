@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "VITE_CJS_TRACE=true vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
