@@ -32,6 +32,7 @@ function CardList(props) {
 
     Promise.all(cards.map((image) => loadImage(image)))
       .then(() => setImgsLoaded(true))
+      // eslint-disable-next-line no-console
       .catch((err) => console.log('Failed to load images', err));
   }, []);
 

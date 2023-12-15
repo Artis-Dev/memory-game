@@ -2,6 +2,7 @@
   "name": "memory-game",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "homepage": "https://artis-dev.github.io/memory-game/",
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -12,6 +13,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
@@ -22,15 +24,16 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^6.1.0",
     "prettier": "^3.1.1",
-    "react-scripts": "5.0.1"
+    "vite": "^5.0.9",
+    "vite-plugin-eslint": "^1.8.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "VITE_CJS_TRACE=true vite build",
+    "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": {
     "production": [
