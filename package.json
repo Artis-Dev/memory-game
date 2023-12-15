@@ -9,7 +9,7 @@
     "react-dom": "^18.2.0",
     "react-parallax-tilt": "^1.7.177",
     "react-transition-group": "^4.4.5",
-    "uniqid": "^5.4.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8.55.0",
