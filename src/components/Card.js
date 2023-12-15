@@ -32,6 +32,7 @@ function Card(props) {
           className="Card"
           onClick={handleClick}
           data-key={card.id}
+          aria-label="Card"
         >
           <img alt="" src={card.image} />
           <img alt="" src={frame} />

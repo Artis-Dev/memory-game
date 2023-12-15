@@ -54,7 +54,7 @@ function CardList(props) {
           handleEndGame('lose');
         }
         return card;
-      })
+      }),
     );
   };
 
